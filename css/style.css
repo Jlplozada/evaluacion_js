@@ -1,14 +1,6 @@
 
 *{
-    margin: 0;
-    padding: 0;
     text-decoration: none;
     color: white;
     background-color: black;
-}
-body{
-    display:grid;
-}
-.ejercicios{
-    align-items: center;
 }
