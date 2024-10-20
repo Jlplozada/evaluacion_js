@@ -1,61 +1,81 @@
-// Función para sumar todos los números
 export function suma(numeros) {
-    let total = 0;
-    for (let num of numeros) {
-        total += num;
+    // creamos y exportamos la funcion suma la cual recibe un arreglo de numeros
+    let total = 0; 
+    // variable que almacenara la suma total
+    for (let i = 0; i < numeros.length; i++) {
+        // Recorremos el arrreglo utilizando un bucle  
+        total += numeros[i]; 
+        // sumamos cada numero al total
     }
-    return total;
+    return total; 
+    // retornamos el valor total de la suma
 }
 
-// Función para contar números pares
 export function contarPares(numeros) {
-    let count = 0;
-    for (let num of numeros) {
-        if (num % 2 === 0) {
-            count++;
+    let count = 0; 
+    // contador para los números pares
+    for (let i = 0; i < numeros.length; i++) {
+        // recorremos el array de numeros
+        if (numeros[i] % 2 === 0) {
+            // Verificamos si el numero es par
+            count++; 
+            // Aumentamos el contador si es par
         }
     }
-    return count;
+    return count; 
+    // retornamos el numero de pares encontrados
 }
 
-// Función para contar números primos
 export function contarPrimos(numeros) {
-    let count = 0;
-    for (let num of numeros) {
-        if (esPrimo(num)) {
+    let count = 0; 
+    // contador para los numeros primos
+    for (let i = 0; i < numeros.length; i++) {
+        // recorremos el array de numeros
+        if (esPrimo(numeros[i])) {
+            // si el número es primo aumentamos el contador
             count++;
         }
     }
-    return count;
+    return count; 
+    // retornamos la cantidad de numeros primos
 }
 
-// Función para calcular el promedio de números primos
 export function promedioPrimos(numeros) {
-    let primos = [];
-    for (let num of numeros) {
-        if (esPrimo(num)) {
-            primos.push(num);
+    let primos = []; 
+    // array para almacenar los numeros primos
+    for (let i = 0; i < numeros.length; i++) {
+        // Recorremos el array de números
+        if (esPrimo(numeros[i])) {
+            // si el nmero es primo lo agregamos al array
+            primos.push(numeros[i]);
         }
     }
+    // si hay numeros primos, calculamos el promedio y si no retornamos 0
     return primos.length ? suma(primos) / primos.length : 0;
 }
 
-// Función para calcular el promedio de números pares
 export function promedioPares(numeros) {
-    let pares = [];
-    for (let num of numeros) {
-        if (num % 2 === 0) {
-            pares.push(num);
+    let pares = []; 
+    // array para almacenar los numeros pares
+    for (let i = 0; i < numeros.length; i++) {
+        // recorremos el array de numeros
+        if (numeros[i] % 2 === 0) {
+            // si el numero es par    lo agregamos al array
+            pares.push(numeros[i]);
         }
     }
+    // si hay numeros pares calculamos el promedio y si no. retornamos 0
     return pares.length ? suma(pares) / pares.length : 0;
 }
 
-// Función auxiliar para verificar si un número es primo
 function esPrimo(num) {
     if (num < 2) return false;
+     // los numeros menores que 2 no son primos
     for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) return false;
+        // verificamos si tiene divisores entre 2 y la raiz cuadrada del numero
+        if (num % i === 0) return false; 
+        // si encontramos un divisor, no es primo
     }
-    return true;
+    return true; 
+    //si no encontramos divisores es primo
 }
